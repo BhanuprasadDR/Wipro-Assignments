@@ -1,0 +1,65 @@
+<mat-toolbar class="mb-3" color="primary">
+  <span class="fw-semibold">{{ title }}</span>
+</mat-toolbar>
+
+<div class="container my-3">
+  <!-- Filters -->
+  <div class="row g-3 align-items-end mb-2">
+    <div class="col-12 col-md-4">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Filter by Artist</mat-label>
+        <mat-select [formControl]="artistCtrl">
+          <mat-option [value]="''">All Artists</mat-option>
+          <mat-option *ngFor="let a of artists()" [value]="a">{{ a }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Filter by Album</mat-label>
+        <mat-select [formControl]="albumCtrl">
+          <mat-option [value]="''">All Albums</mat-option>
+          <mat-option *ngFor="let a of albums()" [value]="a">{{ a }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col-12 col-md-4 d-flex gap-2">
+      <button mat-stroked-button color="primary" class="ms-auto" (click)="clearFilters()">
+        <mat-icon>filter_alt_off</mat-icon>
+        Clear Filters
+      </button>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+    <div class="col" *ngFor="let song of filteredSongs()">
+      <mat-card class="song-card position-relative" [ngClass]="{'top-rated': isTopRated(song)}">
+        <div class="badge-top" *ngIf="isTopRated(song)">Top&nbsp;Rated</div>
+
+        <mat-card-header>
+          <div mat-card-avatar class="avatar-circle d-flex align-items-center justify-content-center">
+            <mat-icon>music_note</mat-icon>
+          </div>
+          <mat-card-title class="mb-0">{{ song.name }}</mat-card-title>
+          <mat-card-subtitle class="text-muted">{{ song.artist }} • {{ song.album }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content class="pt-2">
+          <div class="d-flex justify-content-between">
+            <div><span class="label">Duration:</span> {{ song.duration }}</div>
+            <div><span class="label">Rating:</span> {{ song.rating.toFixed(1) }}</div>
+          </div>
+        </mat-card-content>
+
+        <mat-card-actions class="d-flex justify-content-end">
+          <button mat-fab color="accent" aria-label="Play">
+            <mat-icon>play_arrow</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
