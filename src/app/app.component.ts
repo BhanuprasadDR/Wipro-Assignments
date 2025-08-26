@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true,
+  imports: [FeedbackFormComponent],
+  template: `<app-feedback-form />`,
 })
-export class AppComponent {
-  title = 'feedback-app';
-}
+export class AppComponent {}
