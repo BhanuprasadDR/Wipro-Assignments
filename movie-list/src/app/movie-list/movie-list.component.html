@@ -1,0 +1,14 @@
+<mat-form-field appearance="outline" class="w-100 mb-3">
+  <mat-label>Filter by Genre</mat-label>
+  <!-- ✅ fixed binding -->
+  <mat-select [value]="selectedGenre()" (valueChange)="onGenreChange($event)">
+    <mat-option [value]="''">All</mat-option>
+    <mat-option *ngFor="let g of genres()" [value]="g">{{ g }}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
+  <div class="col" *ngFor="let m of filtered()">
+    <app-movie-card [movie]="m"></app-movie-card>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+.movie-card {
+  max-width: 320px;
+  margin: 15px;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 500px;  /* ensures equal height */
+  background: #fff; /* keep the card light */
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Text area background */
+.card-content {
+  background: #ffffff;
+  padding: 16px;
+  color: #111827;
+}
+
+mat-card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+mat-card-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+mat-card-content {
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+/* Yellow stars */
+.star-rating mat-icon {
+  font-size: 20px;
+  color: #facc15;
+}
+
+.star-rating mat-icon.filled {
+  color: #f59e0b;
+}
+.star-rating {
+  display: flex;
+  align-items: center;
+}
+
+.star-rating mat-icon {
+  font-size: 20px;
+  color: #facc15;
+}
+
+.star-rating mat-icon.filled {
+  color: #f59e0b;
+}
+
+.rating-number {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+}

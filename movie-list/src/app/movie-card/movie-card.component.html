@@ -1,0 +1,24 @@
+<mat-card class="movie-card">
+  <!-- Poster -->
+  <img
+    mat-card-image
+    [src]="movie.posterUrl || 'assets/images/Three_idiots.webp'"
+    alt="{{ movie.title }}"
+  />
+
+  <!-- Text section -->
+  <div class="card-content">
+    <mat-card-title>{{ movie.title }}</mat-card-title>
+    <mat-card-subtitle>{{ movie.genre }}</mat-card-subtitle>
+
+    <mat-card-content>
+      <p>{{ movie.description }}</p>
+
+      <!-- Rating (Stars + Number) -->
+      <div class="star-rating d-flex align-items-center">
+        <mat-icon *ngFor="let star of stars">{{ star }}</mat-icon>
+        <span class="rating-number ms-2">{{ movie.rating }}/5</span>
+      </div>
+    </mat-card-content>
+  </div>
+</mat-card>
