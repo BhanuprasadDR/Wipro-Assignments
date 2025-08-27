@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Students</title>
+  <style>
+    nav {
+      background: #333;
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <div>Student Application</div>
+  <div>
+    <a th:href="@{/students}">Home</a>
+    <a th:href="@{/students/create}">Add Student</a>
+  </div>
+</nav>
+<h2>Student List</h2>
+<table border="1">
+  <tr>
+    <th>Roll No</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Email</th>
+    <th>DOB</th>
+    <th>Address</th>
+    <th>Actions</th>
+  </tr>
+  <tr th:each="student : ${students}">
+    <td th:text="${student.rollNo}"></td>
+    <td th:text="${student.name}"></td>
+    <td th:text="${student.age}"></td>
+    <td th:text="${student.email}"></td>
+    <td th:text="${student.dob}"></td>
+    <td th:text="${student.address}"></td>
+    <td>
+      <a th:href="@{'/students/edit/' + ${student.rollNo}}">Edit</a> |
+      <a th:href="@{'/students/delete/' + ${student.rollNo}}" onclick="return confirm('Are you sure?')">Delete</a>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

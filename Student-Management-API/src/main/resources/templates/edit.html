@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Edit Student</title>
+  <style>
+    nav {
+      background: #333;
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <div>Student Application</div>
+  <div>
+    <a th:href="@{/students}">Home</a>
+  </div>
+</nav>
+<h2>Edit Student</h2>
+<form th:action="@{'/students/update/' + ${student.rollNo}}" th:object="${student}" method="post">
+  <label>Name:</label>
+  <input type="text" th:field="*{name}" required/><br/>
+  <label>Age:</label>
+  <input type="number" th:field="*{age}" required/><br/>
+  <label>Email:</label>
+  <input type="email" th:field="*{email}" required/><br/>
+  <label>DOB:</label>
+  <input type="date" th:field="*{dob}" required/><br/>
+  <label>Address:</label>
+  <input type="text" th:field="*{address}" required/><br/>
+  <button type="submit">Update</button>
+</form>
+</body>
+</html>
