@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <h2 class="text-center">Simple To-Do App</h2>
+
+  <!-- Input for new task -->
+  <div class="input-group mb-3">
+    <input 
+      type="text" 
+      [(ngModel)]="newTask" 
+      placeholder="Enter a task" 
+      class="form-control">
+    <button class="btn btn-primary" (click)="addTask()">Add</button>
+  </div>
+
+  <!-- List of tasks -->
+  <ul class="list-group">
+    <li 
+      *ngFor="let task of tasks; let i = index" 
+      class="list-group-item d-flex justify-content-between align-items-center">
+      <span [class.completed]="task.completed">{{ task.name }}</span>
+      <div>
+        <button class="btn btn-success btn-sm me-2" (click)="toggleTask(i)">
+          {{ task.completed ? 'Undo' : 'Done' }}
+        </button>
+        <button class="btn btn-danger btn-sm" (click)="deleteTask(i)">Delete</button>
+      </div>
+    </li>
+  </ul>
+</div>
+
