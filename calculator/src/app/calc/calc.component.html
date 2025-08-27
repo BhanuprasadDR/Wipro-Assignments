@@ -1,0 +1,13 @@
+<h2 class="text-center mb-3">Simple Calculator</h2>
+
+<input type="number" [(ngModel)]="num1" class="form-control mb-2" placeholder="Enter first number">
+<input type="number" [(ngModel)]="num2" class="form-control mb-2" placeholder="Enter second number">
+
+<div class="d-flex gap-2 mb-3">
+  <button class="btn btn-primary" (click)="addNumbers()">Add</button>
+  <button class="btn btn-warning" (click)="subNum()">Subtract</button>
+  <button class="btn btn-success" (click)="mulNum()">Multiply</button>
+  <button class="btn btn-danger" (click)="divNum()">Divide</button>
+</div>
+
+<p class="fw-bold">Result: {{result}}</p>
